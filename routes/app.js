@@ -1,30 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../models/user');
 
-/* GET home page. */
+/* use node to direct all traffic to Angular for a SPA */
 router.get('/', function(req, res, next) {
-  User.findOne({}, function(err, doc){
-    if (err) {
-      return res.send('Error:' + err);
-    }
-    res.render('node', { email: doc.email });
-  })
-});
-
-router.post('/', function(req, res, next) {
-  var email = req.body.email;
-  var user = new User({
-    firstName: 'Kevin',
-    lastName: 'Coyner',
-    password: 'super-secret',
-    email: email
-  });
-
-  user.save();
-
-
-  res.redirect('/');
+    res.render('index');
 });
 
 module.exports = router;
