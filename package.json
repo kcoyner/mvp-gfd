@@ -26,6 +26,7 @@
     "debug": "~2.6.3",
     "express": "~4.15.2",
     "hbs": "~4.0.1",
+    "mongoose": "^4.11.9",
     "morgan": "~1.8.1",
     "nodemon": "^1.11.0",
     "pg-promise": "^6.5.1",
