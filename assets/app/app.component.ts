@@ -4,7 +4,6 @@
 
 import  { Component } from '@angular/core';
 
-import { Message } from './messages/message.model';
 
 @Component({
     selector: 'my-app',
@@ -13,8 +12,4 @@ import { Message } from './messages/message.model';
 })
 
 export class AppComponent {
-    messages: Message []  = [
-      new Message ('a message from parent to child', 'Kevin'),
-      new Message ('another message', 'Kevin'),
-    ];
 }
