@@ -19,7 +19,7 @@ import { Message } from './message.model';
 })
 
 export class MessageListComponent {
-    messages: Message []  = [
+    messages: Message[]  = [
       new Message ('a message from parent to child', 'Kevin'),
       new Message ('another message', 'Kevin'),
     ];
