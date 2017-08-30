@@ -1,3 +1,7 @@
+/*
+ * message.model.ts
+ */
+
 export class Message {
     content: string;
     username: string;

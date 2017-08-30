@@ -1,4 +1,10 @@
+/*
+ * app.component.ts
+ */
+
 import  { Component } from '@angular/core';
+
+import { Message } from './messages/message.model';
 
 @Component({
     selector: 'my-app',
@@ -7,8 +13,5 @@ import  { Component } from '@angular/core';
 })
 
 export class AppComponent {
-    message = {
-        content: 'Message in a bottle',
-        author: 'Kevin'
-    };
+    message: Message  = new Message ('a message from parent to child', 'Kevin');
 }
