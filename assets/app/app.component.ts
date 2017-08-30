@@ -13,5 +13,8 @@ import { Message } from './messages/message.model';
 })
 
 export class AppComponent {
-    message: Message  = new Message ('a message from parent to child', 'Kevin');
+    messages: Message []  = [
+      new Message ('a message from parent to child', 'Kevin'),
+      new Message ('another message', 'Kevin'),
+    ];
 }
