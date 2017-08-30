@@ -12,7 +12,7 @@ export class MessageService {
         console.log(this.messages);
     }
 
-    getMessage() {
+    getMessages() {
         return this.messages;
     }
 

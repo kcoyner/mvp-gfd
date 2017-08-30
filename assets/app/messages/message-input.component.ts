@@ -3,8 +3,8 @@
  */
 
 import  { Component } from '@angular/core';
-import { MessageService } from './message.service';
 import { Message } from './message.model';
+import { MessageService } from './message.service';
 
 @Component({
     selector: 'app-message-input',
@@ -14,8 +14,7 @@ import { Message } from './message.model';
 
 
 export class MessageInputComponent {
-    constructor (private messageService: MessageService) {
-    }
+    constructor (private messageService: MessageService) {}
 
 
     onSave(value: string) {
