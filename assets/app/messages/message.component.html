@@ -2,6 +2,8 @@
   message.component.html
 -->
 
+<!-- TODO: fix for html/tidy -->
+
 <article class="panel panel-default">
   <div class="panel-body">
       {{ message.content }}
@@ -11,8 +13,8 @@
         {{ message.username }}
     </div>
     <div class="config">
-        <a href="#" (click)="onEdit()">Edit</a>
-        <a href="#">Delete</a>
+        <a (click)="onEdit()">Edit</a>
+        <a (click)="onDelete()">Delete</a>
     </div>
   </footer>
 </article>
