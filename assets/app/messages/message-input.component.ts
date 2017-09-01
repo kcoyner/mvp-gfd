@@ -2,7 +2,7 @@
  * message-input.component.ts
  */
 
-import  { Component } from '@angular/core';
+import  { Component, OnInit } from '@angular/core';
 import { Message } from './message.model';
 import { MessageService } from './message.service';
 import  { NgForm } from '@angular/forms';
@@ -13,17 +13,35 @@ import  { NgForm } from '@angular/forms';
 })
 
 
-export class MessageInputComponent {
+export class MessageInputComponent implements OnInit {
+    message: Message;
+
     constructor (private messageService: MessageService) {}
 
 
     onSubmit(form: NgForm) {
+      if (this.message) {
+        // edit
+        this.message.content = form.value.content;
+      } else {
+        // create a new message
         const message = new Message(form.value.content, 'Kevin');
         this.messageService.addMessage(message)
         .subscribe(
           data => console.log(data),
           error => console.error(error)
         );
-        form.resetForm();
+      }
+      form.resetForm();
     }
+
+  onClear(form: NgForm) {
+    form.resetForm();
+  }
+
+  ngOnInit() {
+    this.messageService.messageIsEdit.subscribe(
+      (message: Message) => this.message = message
+    );
+  }
 }
