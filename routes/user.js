@@ -8,15 +8,20 @@ var router = express.Router();
 
 var User = require('../models/user');
 
+var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+
 router.post('/', function(req, res, next) {
   var user = new User({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
-    password: bcrpyt.hashSync(req.body.password, 10),
+    password: bcrypt.hashSync(req.body.password, 10),
     email: req.body.email
   });
   user.save(function(err, result) {
+
     if (err) {
+      console.log('kbcaba: ', user);
       return res.status(500).json({
         title: 'An error occured on saving a new user: ',
         error: err

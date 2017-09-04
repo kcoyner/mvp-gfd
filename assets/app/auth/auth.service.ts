@@ -5,7 +5,7 @@
 import { Http, Headers, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { User } from './user.model';
-import 'rxjs/Rx';               // provides map
+import 'rxjs/Rx';
 import { Observable } from 'rxjs';
 
 
