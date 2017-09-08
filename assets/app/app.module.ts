@@ -12,6 +12,10 @@ import { MessageComponent } from './messages/message.component';
 import { MessageListComponent } from './messages/message-list.component';
 import { MessageInputComponent } from './messages/message-input.component';
 import { MessagesComponent } from './messages/messages.component';
+import { MemberComponent } from './members/member.component';
+import { MemberListComponent } from './members/member-list.component';
+import { MemberInputComponent } from './members/member-input.component';
+import { MembersComponent } from './members/members.component';
 import { AuthenticationComponent } from './auth/authentication.component';
 import { HeaderComponent } from './header.component';
 import { routing } from './app.routing';
@@ -27,6 +31,10 @@ import { AuthService } from './auth/auth.service';
         MessageListComponent,
         MessageInputComponent,
         MessagesComponent,
+        MemberComponent,
+        MemberListComponent,
+        MemberInputComponent,
+        MembersComponent,
         AuthenticationComponent,
         HeaderComponent,
         LogoutComponent,
@@ -44,5 +52,5 @@ import { AuthService } from './auth/auth.service';
     bootstrap: [AppComponent]
 })
 
-export class AppModule {
-}
+export class AppModule {}
+
