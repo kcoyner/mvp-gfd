@@ -50,27 +50,24 @@ router.post('/', function(req, res, next) {
       });
     }
 
-  var message = new Message({
-    content: req.body.content,
-    user: user
-  });
-  message.save(function(err,result){
-    if (err) {
-      return res.status(500).json({
-        title: 'An error occured on save: ',
-        error: err
-      });
-    }
-
-    user.messages.push(result);
-    user.save();
-
-
-    res.status(201).json({
-      message: 'Saved message: ',
-      obj: result
+    var message = new Message({
+      content: req.body.content,
+      user: user
     });
-  });
+    message.save(function(err,result){
+      if (err) {
+        return res.status(500).json({
+          title: 'An error occured on save: ',
+          error: err
+        });
+      }
+      user.messages.push(result);
+      user.save();
+      res.status(201).json({
+        message: 'Saved message: ',
+        obj: result
+      });
+    });
 
   });
 });
@@ -90,7 +87,7 @@ router.patch('/:id', function(req, res, next) {
         error: {message: 'Message not found'}
       });
     }
-    if (message.user !== decoded.user._id) {
+    if (message.user != decoded.user._id) {
       return res.status(401).json({
         title: 'Not authenticated',
         error: {message: 'Users do not match'}
@@ -127,7 +124,7 @@ router.delete('/:id', function(req, res, next) {
         error: {message: 'Message not found'}
       });
     }
-    if (message.user !== decoded.user._id) {
+    if (message.user != decoded.user._id) {
       return res.status(401).json({
         title: 'Not authenticated',
         error: {message: 'Users do not match'}
