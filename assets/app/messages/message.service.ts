@@ -17,7 +17,10 @@ export class MessageService {
 
   addMessage(message: Message) {
     const body = JSON.stringify(message);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    });
     const token = localStorage.getItem('token')
       ? '?token=' + localStorage.getItem('token')
       : '';
@@ -38,7 +41,7 @@ export class MessageService {
   getMessages() {
     return this.http.get('http://localhost:3333/message')
       .map((response: Response) => {
-        const messages =response.json().obj;
+        const messages = response.json().obj;
         let transformedMessages: Message[] = [];
         for (let message of messages) {
           transformedMessages.push(new Message(
@@ -52,7 +55,7 @@ export class MessageService {
         return transformedMessages;
         // this creates an observable that can be subscribed to
       })
-     .catch((error: Response) => Observable.throw(error.json()));
+     .catch((error: Response) => Observable.throw('Error in GET', error.json()));
   }
 
   editMessage(message: Message) {
