@@ -1,0 +1,23 @@
+<!--
+  member-input.component.html
+-->
+
+<div class="col-md-8 col-md-offset-2">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm" ngNativeValidate>
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input
+            id="firstName"
+            class="form-control"
+            type="text"
+            [ngModel]="member?.firstName"
+            name="firstName"
+            required
+            >
+            <br>
+        </div>
+            <button type="button" class="btn btn-danger" (click)="onClear(f)">Clear</button>
+            <button class="btn btn-primary" type="submit">Save</button>
+
+    </form>
+</div>

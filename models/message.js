@@ -1,3 +1,7 @@
+/*
+ * models/message.js
+ */
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var User = require('./user');
