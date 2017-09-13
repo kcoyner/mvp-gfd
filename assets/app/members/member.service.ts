@@ -6,7 +6,8 @@ import { Http, Response, Headers } from '@angular/http';
 import { Member } from  './member.model';
 import { Injectable, EventEmitter } from '@angular/core';
 import 'rxjs/Rx';
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class MemberService {
@@ -22,7 +23,7 @@ export class MemberService {
         let transformedMembers: Member[] = [];
         for (let member of members) {
           transformedMembers.push(new Member(
-            member.user.firstName,
+            // member.user.firstName,
             member.firstName,
             member._id,
             member.user._id)
@@ -32,7 +33,8 @@ export class MemberService {
         return transformedMembers;
         // this creates an observable that can be subscribed to
       })
-     .catch((error: Response) => Observable.throw(error.json()));
+     // .catch((error: Response) => Observable.throw(error.json()));
+     // .catch((error: Response) => console.log(error))
   }
 
   editMember(member: Member) {
